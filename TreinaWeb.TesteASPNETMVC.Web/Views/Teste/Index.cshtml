@@ -9,12 +9,32 @@
 
 @using (Html.BeginForm("Index", "Teste", FormMethod.Post))
 {
-    @Html.LabelFor(p => p.Nome)<br />
-    @Html.TextBoxFor(p => p.Nome, new { id = "txbNome" })<br />
-    @Html.LabelFor(p => p.Idade)<br />
-    @Html.EditorFor(p => p.Idade, new { id = "txbIdade" })<br />
-    @Html.LabelFor(p => p.Endereco)<br />
-    @Html.TextBoxFor(p => p.Endereco, new { id = "txbEndereco" })<br /><br />
+    @Html.ValidationSummary(true)
+
+    @Html.LabelFor(p => p.Nome)
+    <br />
+    @Html.TextBoxFor(p => p.Nome, new { id = "txbNome" })
+    @Html.ValidationMessageFor(p => p.Nome)
+    <br />
+
+    @Html.LabelFor(p => p.Idade)
+    <br />
+    @Html.EditorFor(p => p.Idade)
+    @Html.ValidationMessageFor(p => p.Idade)
+    <br />
+
+    @Html.LabelFor(p => p.Endereco)
+    <br />
+    @Html.TextBoxFor(p => p.Endereco)
+    @Html.ValidationMessageFor(p => p.Endereco)
+    <br />
+
+    @Html.LabelFor(p => p.Email)
+    <br />
+    @Html.TextBoxFor(p => p.Email)
+    @Html.ValidationMessageFor(p => p.Email)
+    <br />
+    <br />
     <input type="submit"
            value="Enviar" />
 }
