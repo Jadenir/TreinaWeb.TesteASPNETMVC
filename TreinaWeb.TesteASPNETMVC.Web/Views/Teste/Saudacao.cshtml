@@ -7,5 +7,7 @@
 
 
 <p>Olá, seja bem vindo @Model.Nome</p>
-@Html.Label("Idade: ") @Html.EditorFor(p => p.Idade)<br />
-@Html.Label("Endereço: ") @Html.TextBoxFor(p => p.Endereco)
+@Html.LabelFor(p => p.Idade) <br />
+@Html.EditorFor(p => p.Idade)<br />
+@Html.LabelFor(p => p.Endereco) <br />
+@Html.TextBoxFor(p => p.Endereco)
