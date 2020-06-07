@@ -1,0 +1,22 @@
+﻿@model TreinaWeb.TesteASPNETMVC.Web.Models.Pessoa
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<br />
+<br />
+
+@using (Html.BeginForm("Index", "Teste", FormMethod.Post))
+{
+    @Html.LabelFor(p => p.Nome)<br />
+    @Html.TextBoxFor(p => p.Nome, new { id = "txbNome" })<br />
+    @Html.LabelFor(p => p.Idade)<br />
+    @Html.EditorFor(p => p.Idade, new { id = "txbIdade" })<br />
+    @Html.LabelFor(p => p.Endereco)<br />
+    @Html.TextBoxFor(p => p.Endereco, new { id = "txbEndereco" })<br /><br />
+    <input type="submit"
+           value="Enviar" />
+}
+
+

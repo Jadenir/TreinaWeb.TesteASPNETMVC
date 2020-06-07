@@ -1,0 +1,11 @@
+﻿@model TreinaWeb.TesteASPNETMVC.Web.Models.Pessoa
+@{
+    ViewBag.Title = "Saudacao";
+}
+
+<h2>Saudacao</h2>
+
+
+<p>Olá, seja bem vindo @Model.Nome</p>
+@Html.Label("Idade: ") @Html.EditorFor(p => p.Idade)<br />
+@Html.Label("Endereço: ") @Html.TextBoxFor(p => p.Endereco)
