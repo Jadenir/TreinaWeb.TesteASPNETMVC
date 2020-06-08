@@ -9,6 +9,7 @@
 
 @using (Html.BeginForm("Index", "Teste", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     @Html.LabelFor(p => p.Nome)
@@ -33,7 +34,6 @@
     <br />
     @Html.TextBoxFor(p => p.Email)
     @Html.ValidationMessageFor(p => p.Email)
-    <br />
     <br />
     <input type="submit"
            value="Enviar" />

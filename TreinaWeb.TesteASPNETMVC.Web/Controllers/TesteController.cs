@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls.Expressions;
 using TreinaWeb.TesteASPNETMVC.Web.Models;
 
 namespace TreinaWeb.TesteASPNETMVC.Web.Controllers
@@ -12,14 +13,21 @@ namespace TreinaWeb.TesteASPNETMVC.Web.Controllers
         // GET: Teste
         public ActionResult Index()
         {
-            return View();
+            return View(); 
         }
 
         [HttpPost]
-        public ActionResult Index(Pessoa pessoa)
+        [ValidateAntiForgeryToken]
+        public ActionResult Index([Bind(Exclude = "Ativo")] Pessoa pessoa)
         {
-            ViewBag.PessoaInformada = pessoa.Nome;
-            return View("Saudacao", pessoa);
+            if (ModelState.IsValid)
+            {
+                return View("Saudacao", pessoa);
+            }
+            else
+            {
+                return View(pessoa);
+            }
         }
     }
 }
